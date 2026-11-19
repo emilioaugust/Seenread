@@ -1,5 +1,6 @@
 package com.emilioaugust.seenread.ui.screens
 
+import android.content.Intent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -32,17 +33,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import com.emilioaugust.seenread.BuildConfig
 import com.emilioaugust.seenread.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AboutScreen(onBack: () -> Unit) {
+    val context = LocalContext.current
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -121,22 +126,29 @@ fun AboutScreen(onBack: () -> Unit) {
                 AboutRow(
                     icon = Icons.Outlined.Code,
                     text = stringResource(R.string.view_source_code),
-                    subText = "github.com/bookie",
-                    onClick = {}
+                    subText = "github.com/Seenread",
+                    onClick = {
+                        context.startActivity(Intent(Intent.ACTION_VIEW, "https://github.com/emilioaugust/Seenread".toUri()))
+                    }
                 )
                 Spacer(Modifier.height(20.dp))
                 AboutRow(
                     icon = Icons.Outlined.Copyright,
                     text = stringResource(R.string.license),
                     subText = stringResource(R.string.mit_license),
-                    onClick = {}
+                    onClick = {context.startActivity(Intent(Intent.ACTION_VIEW, "https://github.com/emilioaugust/Seenread/blob/main/LICENSE".toUri()))
+
+                    }
                 )
                 Spacer(Modifier.height(20.dp))
                 AboutRow(
                     icon = Icons.Outlined.Mail,
                     text = stringResource(R.string.send_feedback),
                     subText = "emiliooaaugust@gmail.com",
-                    onClick = {}
+                    onClick = {
+                        val intent = Intent(Intent.ACTION_SENDTO).apply { data = "mailto:emiliooaaugust@gmail.com".toUri() }
+                        context.startActivity(intent)
+                    }
                 )
             }
         }
