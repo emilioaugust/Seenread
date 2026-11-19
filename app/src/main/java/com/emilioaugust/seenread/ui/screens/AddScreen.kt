@@ -141,10 +141,9 @@ fun AddScreen(bookmarkViewModel: BookmarkViewModel, onBack: () -> Unit) {
         ) {
             OutlinedTextField(
                 value = form.url,
-                onValueChange = {
-                    if (currentUrl.isBlank()) {
-                    form = form.copy(url = form.url)
-                } },
+                onValueChange = { newValue ->
+                    form = form.copy(url = newValue)
+                },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(end = 8.dp),
