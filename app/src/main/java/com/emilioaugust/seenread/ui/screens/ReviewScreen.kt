@@ -291,7 +291,7 @@ fun ReviewCard(
                                 modifier = Modifier.weight(1f),
                                 colors = ButtonDefaults.textButtonColors(
                                     containerColor = MaterialTheme.colorScheme.onSurfaceVariant,
-                                    contentColor = Color.Green
+                                    contentColor = Color(0xFF07831D)
                                 ),
                                 shape = MaterialTheme.shapes.medium
                             ) {
@@ -323,7 +323,7 @@ fun ReviewCard(
                                 ),
                                 shape = MaterialTheme.shapes.medium
                             ) {
-                                Text(stringResource(R.string.archive))
+                                Text(stringResource(R.string.delete))
                             }
                         }
                     }
