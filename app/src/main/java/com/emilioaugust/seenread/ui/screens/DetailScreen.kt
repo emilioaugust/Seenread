@@ -221,8 +221,9 @@ fun DetailScreen(bookmarkId: String, viewModel: BookmarkViewModel,
             Text(stringResource(R.string.note), style = MaterialTheme.typography.bodyMedium)
             Spacer(Modifier.height(12.dp))
 
-            if(currentBookmark.note == "") {
-                Text(stringResource(R.string.there_s_no_note), style = MaterialTheme.typography.bodyMedium, color = Color.Gray)
+            if(currentBookmark.note == "" || currentBookmark.note == null) {
+                Text(stringResource(R.string.there_s_no_note),
+                    style = MaterialTheme.typography.bodyMedium, color = Color.Gray)
             } else {
                 currentBookmark.note?.let { Text(it, style = MaterialTheme.typography.bodyMedium, color = Color.Gray) }
             }
