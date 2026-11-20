@@ -334,7 +334,7 @@ fun SettingsScreen(navController: NavController, settingsViewModel: SettingsView
                 SettingsSwitchItem(
                     icon = R.drawable.auto_fill,
                     text = stringResource(R.string.auto_fill_links),
-                    size = 30.dp,
+                    size = 24.dp,
                     subText = stringResource(R.string.fill_links_in_url_field_automatically),
                     checked = autoFillCopiedUrlFlow,
                     onCheckedChange = {
@@ -415,7 +415,7 @@ fun SettingsScreen(navController: NavController, settingsViewModel: SettingsView
                     )
                 }
 
-                Spacer(Modifier.height(24.dp))
+                Spacer(Modifier.height(26.dp))
 
                 Text(text = stringResource(R.string.about), style = MaterialTheme.typography.bodySmall,
                     fontWeight = FontWeight.Bold,
@@ -457,7 +457,7 @@ fun SettingsScreen(navController: NavController, settingsViewModel: SettingsView
                     TextButton(
                         onClick = {
                             showExportDialog = false
-                            exportHtmlLauncher.launch("recollect_bookmarks.html") // change app name
+                            exportHtmlLauncher.launch("seenread_bookmarks.html")
                         },
                         modifier = Modifier.fillMaxWidth()
                     ) {
@@ -467,7 +467,7 @@ fun SettingsScreen(navController: NavController, settingsViewModel: SettingsView
                     TextButton(
                         onClick = {
                             showExportDialog = false
-                            exportJsonLauncher.launch("recollect_backup.json")
+                            exportJsonLauncher.launch("seenread_bookmarks.json")
                         },
                         modifier = Modifier.fillMaxWidth()
                     ) {
@@ -477,7 +477,7 @@ fun SettingsScreen(navController: NavController, settingsViewModel: SettingsView
                     TextButton(
                         onClick = {
                             showExportDialog = false
-                            exportCsvLauncher.launch("recollect_backup.csv")
+                            exportCsvLauncher.launch("seenread_bookmarks.csv")
                         },
                         modifier = Modifier.fillMaxWidth()
                     ) {
