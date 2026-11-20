@@ -24,18 +24,9 @@ import com.emilioaugust.seenread.ui.screens.WelcomeScreen
 fun AppRoot(
     viewModel: BookmarkViewModel,
     settingsViewModel: SettingsViewModel,
-    sharedUrl: String?,
-    onSharedUrlConsumed: () -> Unit
 ) {
     val isFirstLaunch by settingsViewModel.isFirstLaunch.collectAsStateWithLifecycle()
     var showAbout by rememberSaveable { mutableStateOf(false) }
-
-    LaunchedEffect(sharedUrl) {
-        sharedUrl?.let { url ->
-            viewModel.addSharedLink(url)
-            onSharedUrlConsumed()
-        }
-    }
 
     when (isFirstLaunch) {
         null -> Box(Modifier.fillMaxSize())
