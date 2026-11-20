@@ -1,10 +1,7 @@
 package com.emilioaugust.seenread
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.util.Patterns
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -14,7 +11,6 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.core.os.LocaleListCompat
 import com.emilioaugust.seenread.data.datastore.SettingsDataStore
 import com.emilioaugust.seenread.data.viewmodel.BookmarkViewModel
@@ -38,8 +34,6 @@ class MainActivity : ComponentActivity() {
 
     private lateinit var settingsDataStore: SettingsDataStore
 
-    private val sharedUrl = mutableStateOf<String?>(null)
-
     override fun attachBaseContext(newBase: Context) {
         val context = runBlocking {
             val dataStore = SettingsDataStore(newBase)
@@ -51,7 +45,6 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         settingsDataStore = SettingsDataStore(applicationContext)
-        handleShareIntent(intent)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
@@ -69,48 +62,8 @@ class MainActivity : ComponentActivity() {
             }
 
             BookieTheme(darkTheme = darkTheme) {
-                AppRoot(viewModel, settingsViewModel,
-                    sharedUrl = sharedUrl.value,
-                    onSharedUrlConsumed = {
-                        sharedUrl.value = null
-                    }
-                )
+                AppRoot(viewModel, settingsViewModel)
             }
         }
-    }
-
-    override fun onNewIntent(intent: Intent) {
-        super.onNewIntent(intent)
-        setIntent(intent)
-
-        handleShareIntent(intent)
-    }
-
-    private fun handleShareIntent(intent: Intent?) {
-        if (intent?.action != Intent.ACTION_SEND) return
-        if (intent.type != "text/plain") return
-
-        val sharedText = intent.getStringExtra(Intent.EXTRA_TEXT)
-            ?: return
-
-        val url = extractUrl(sharedText) ?: return
-
-        sharedUrl.value = url
-
-        Toast.makeText(
-            this,
-            "Bookmark successfully saved",
-            Toast.LENGTH_SHORT
-        ).show()
-    }
-
-    private fun extractUrl(text: String): String? {
-        val matcher = Patterns.WEB_URL.matcher(text)
-
-        if (!matcher.find()) return null
-
-        return matcher.group()
-            ?.trim()
-            ?.trimEnd('.', ',', '!', '?', ')', ']')
     }
 }
