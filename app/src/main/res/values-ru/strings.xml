@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">bookie</string>
+    <string name="app_name">Seenread</string>
     <string name="english">Английский</string>
     <string name="russian">Русский</string>
     <string name="save_bookmark">Сохранить закладку</string>
@@ -19,7 +19,7 @@
     <string name="send_feedback">Отправить отзыв</string>
     <string name="archive">Архив</string>
     <string name="no_archived_items_yet">В архиве пока ничего нет</string>
-    <string name="archive_items_you_no_longer_need_but_want_to_keep_for_later">Архивируйте элементы,\nкоторые больше не нужны,\nно которые вы хотите\nсохранить на потом</string>
+    <string name="archive_items_you_no_longer_need_but_want_to_keep_for_later">Архивируйте элементы, которые\nбольше не нужны, но которые\nвы хотите сохранить на потом</string>
     <string name="unknown">Неизвестно</string>
     <string name="remove_from_favorites">Удалить из избранного</string>
     <string name="share">Поделиться</string>
@@ -44,7 +44,7 @@
     <string name="save_links_from_anywhere_using_the_share_menu_or_the_button">Сохраняйте ссылки откуда\nугодно с помощью\nменю «Поделиться» или кнопки +</string>
     <string name="recent">Недавние</string>
     <string name="review">Просмотр</string>
-    <string name="take_a_look_at_older_bookmarks_keep_what_s_useful_archive_or_delete_what_you_don_t_need">Просмотрите старые закладки.\nОставьте полезное, архивируйте или удалите\nто, что вам не нужно</string>
+    <string name="take_a_look_at_older_bookmarks_keep_what_s_useful_archive_or_delete_what_you_don_t_need">Просмотрите старые закладки.\nОставьте полезное, архивируйте или удалите то, что вам не нужно</string>
     <string name="no_bookmarks_to_review">Нет закладок для просмотра</string>
     <string name="you_ll_see_older_bookmarks_here_when_it_s_time_to_revisit_them">Здесь появятся старые закладки,\nкогда придёт время к ним вернуться</string>
     <string name="keep">Оставить</string>
@@ -60,7 +60,7 @@
     <string name="dark">Тёмная</string>
     <string name="preferences">Предпочтения</string>
     <string name="open_links">Открывать ссылки</string>
-    <string name="open_links_in_an_external_browser">Открывать ссылки во внешнем браузере</string>
+    <string name="open_links_in_an_external_browser">Открывать ссылки во внешнем\nбраузере</string>
     <string name="change_language">Сменить язык</string>
     <string name="change_app_language">Изменить язык приложения</string>
     <string name="data">Данные</string>
@@ -89,6 +89,27 @@
     <string name="reference">Справочник</string>
     <string name="try_tag">Попробовать</string>
     <string name="buy">Купить</string>
-    <string name="no_keep">Нет, оставить</string>
-    <string name="yes_delete">Да, удалить</string>
+    <string name="no_keep">Нет</string>
+    <string name="yes_delete">Да</string>
+    <string name="auto_fill_links">Автозаполнение ссылок</string>
+    <string name="fill_links_in_url_field_automatically">Автоматически заполнять ссылки\nв поле URL</string>
+    <string name="m_ago">%1$d мин назад</string>
+    <string name="h_ago">%1$d ч назад</string>
+    <string name="d_ago">%1$d дн назад</string>
+    <string name="w_ago">%1$d нед назад</string>
+    <string name="mo_ago">%1$d мес назад</string>
+    <string name="y_ago">%1$d г назад</string>
+    <string name="saved_ago">Сохранено %1$s</string>
+    <string name="never_opened">Никогда не открывалось</string>
+    <string name="just_now">только что</string>
+    <string name="opened">Открыто %1$s</string>
+    <string name="unknown_archive_date">Неизвестная дата архивации</string>
+    <string name="archived_just_now">Архивировано только что</string>
+    <string name="archived_min_ago">Архивировано %1$d мин назад</string>
+    <string name="archived_h_ago">Архивировано %1$d ч назад</string>
+    <string name="archived_d_ago">Архивировано %1$d дн назад</string>
+    <string name="archived">Архивировано %1$s</string>
+    <string name="bookmark_successfully_saved">Закладка успешно сохранена</string>
+    <string name="bookmark_already_exists">Закладка уже существует</string>
+    <string name="saved_to_seenread">Сохранено в Seenread</string>
 </resources>
