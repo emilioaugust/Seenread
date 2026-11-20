@@ -3,6 +3,12 @@
 
     <style name="Theme.Seenread" parent="android:Theme.Material.Light.NoActionBar" />
 
+    <style name="Theme.Seenread.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#4B7E79</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/foreground</item>
+        <item name="postSplashScreenTheme">@style/Theme.Seenread</item>
+    </style>
+
     <style name="Theme.Seenread.ShareReceiver" parent="Theme.AppCompat.DayNight.Dialog">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
