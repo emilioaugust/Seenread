@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.widget.Toast
 import androidx.core.net.toUri
+import com.emilioaugust.seenread.R
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -68,7 +69,7 @@ fun getClearDomain(rawUrl: String): String? {
     return host.removePrefix("www.")
 }
 
-fun formatSavedTime(timestamp: Long): String {
+fun formatSavedTime(context: Context, timestamp: Long): String {
     val now = System.currentTimeMillis()
     val diff = (now - timestamp).coerceAtLeast(0L)
 
@@ -80,19 +81,19 @@ fun formatSavedTime(timestamp: Long): String {
     val year = 365 * day
 
     val timeAgo = when {
-        diff < hour -> "${(diff / minute).coerceAtLeast(1)}m ago"
-        diff < day -> "${diff / hour}h ago"
-        diff < week -> "${diff / day}d ago"
-        diff < month -> "${diff / week}w ago"
-        diff < year -> "${diff / month}mo ago"
-        else -> "${diff / year}y ago"
+        diff < hour -> context.getString(R.string.m_ago, (diff / minute).coerceAtLeast(1))
+        diff < day -> context.getString(R.string.h_ago, diff / hour)
+        diff < week -> context.getString(R.string.d_ago, diff / day)
+        diff < month -> context.getString(R.string.w_ago, diff / week)
+        diff < year -> context.getString(R.string.mo_ago, diff / month)
+        else -> context.getString(R.string.y_ago, diff / year)
     }
 
-    return "Saved $timeAgo"
+    return context.getString(R.string.saved_ago, timeAgo)
 }
 
-fun formatLastOpened(timestamp: Long?): String {
-    if (timestamp == null) return "Never opened"
+fun formatLastOpened(context: Context, timestamp: Long?): String {
+    if (timestamp == null) return context.getString(R.string.never_opened)
 
     val diff = (System.currentTimeMillis() - timestamp)
         .coerceAtLeast(0L)
@@ -105,20 +106,19 @@ fun formatLastOpened(timestamp: Long?): String {
     val year = 365 * day
 
     val result = when {
-        diff < minute -> "Just now"
-        diff < hour -> "${diff / minute}m ago"
-        diff < day -> "${diff / hour}h ago"
-        diff < week -> "${diff / day}d ago"
-        diff < month -> "${diff / week}w ago"
-        diff < year -> "${diff / month}mo ago"
-        else -> "${diff / year}y ago"
+        diff < minute -> context.getString(R.string.just_now)
+        diff < day -> context.getString(R.string.h_ago, diff / hour)
+        diff < week -> context.getString(R.string.d_ago, diff / day)
+        diff < month -> context.getString(R.string.w_ago, diff / week)
+        diff < year -> context.getString(R.string.mo_ago, diff / month)
+        else -> context.getString(R.string.y_ago, diff / year)
     }
 
-    return "Opened $result"
+    return context.getString(R.string.opened, result)
 }
 
-fun formatArchivedTime(timestamp: Long?): String {
-    if (timestamp == null) return "Unknown archive date"
+fun formatArchivedTime(context: Context, timestamp: Long?): String {
+    if (timestamp == null) return context.getString(R.string.unknown_archive_date)
 
     val now = System.currentTimeMillis()
     val diff = (now - timestamp).coerceAtLeast(0L)
@@ -128,10 +128,10 @@ fun formatArchivedTime(timestamp: Long?): String {
     val days = diff / 86_400_000
 
     return when {
-        minutes < 1 -> "Archived just now"
-        minutes < 60 -> "Archived ${minutes}min ago"
-        hours < 24 -> "Archived ${hours}h ago"
-        days < 30 -> "Archived ${days}d ago"
+        minutes < 1 -> context.getString(R.string.archived_just_now)
+        minutes < 60 -> context.getString(R.string.archived_min_ago, minutes)
+        hours < 24 -> context.getString(R.string.archived_h_ago, hours)
+        days < 30 -> context.getString(R.string.archived_d_ago, days)
         else -> {
             val formatter = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
             "Archived ${formatter.format(Date(timestamp))}"
