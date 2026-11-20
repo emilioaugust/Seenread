@@ -427,7 +427,7 @@ fun BookmarkCard(bookmarkEntity: BookmarkEntity, onClick: () -> Unit, onLongClic
 
             Row {
                 Text(
-                    text = formatSavedTime(bookmarkEntity.createdAt),
+                    text = formatSavedTime(context, bookmarkEntity.createdAt),
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                     style = MaterialTheme.typography.bodySmall,

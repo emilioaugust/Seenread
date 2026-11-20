@@ -261,7 +261,7 @@ fun ReviewCard(
                         Spacer(Modifier.height(4.dp))
 
                         Text(
-                            text = formatSavedTime(bookmarkEntity.createdAt),
+                            text = formatSavedTime(context, bookmarkEntity.createdAt),
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                             style = MaterialTheme.typography.bodySmall,

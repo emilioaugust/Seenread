@@ -212,7 +212,7 @@ fun ArchivedBookmarkCard(bookmarkEntity: BookmarkEntity, onClick: () -> Unit, on
             Spacer(Modifier.height(4.dp))
 
             Text(
-                text = formatArchivedTime(bookmarkEntity.archivedAt),
+                text = formatArchivedTime(context, bookmarkEntity.archivedAt),
                 style = MaterialTheme.typography.bodyMedium,
                 color = Color.Gray
             )

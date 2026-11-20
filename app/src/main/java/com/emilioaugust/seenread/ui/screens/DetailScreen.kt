@@ -194,7 +194,7 @@ fun DetailScreen(bookmarkId: String, viewModel: BookmarkViewModel,
 
             Row {
                 Text(
-                    text = formatSavedTime(currentBookmark.createdAt),
+                    text = formatSavedTime(context, currentBookmark.createdAt),
                     style = MaterialTheme.typography.bodyMedium,
                     color = Color.Gray
                 )
@@ -206,7 +206,7 @@ fun DetailScreen(bookmarkId: String, viewModel: BookmarkViewModel,
                 )
                 Spacer(Modifier.width(16.dp))
                 Text(
-                    text = formatLastOpened(currentBookmark.lastOpenedAt),
+                    text = formatLastOpened(context, currentBookmark.lastOpenedAt),
                     style = MaterialTheme.typography.bodyMedium,
                     color = Color.Gray
                 )
