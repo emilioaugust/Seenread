@@ -25,8 +25,8 @@
 <hr />
 <div align="center">
     <img src="assets/images/recent.png" alt="Clipboards" style="width: 250px">
-    <img src="assets/images/library.png" alt="Clipboards" style="width: 250px">
     <img src="assets/images/save.png" alt="Clipboards" style="width: 250px">
+    <img src="assets/images/library.png" alt="Clipboards" style="width: 250px">
     <img src="assets/images/review.png" alt="Clipboards" style="width: 250px">
     <img src="assets/images/settings.png" alt="Clipboards" style="width: 250px">
 </div>
